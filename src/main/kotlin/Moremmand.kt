@@ -10,9 +10,9 @@ import org.bukkit.plugin.java.JavaPlugin
 
 sealed class TargetType
 
-data object Player : TargetType()
-data object Console : TargetType()
-data object Any : TargetType()
+data object PLAYER : TargetType()
+data object CONSOLE : TargetType()
+data object ANY : TargetType()
 
 sealed class PermissionCheck
 data class AnyOf(val permissions: List<String>) : PermissionCheck()
@@ -22,7 +22,7 @@ fun anyOf(permissions: List<String>) = AnyOf(permissions)
 fun allOf(permissions: List<String>) = AllOf(permissions)
 
 class MoremmandBuilder(private val name: String, private val plugin: JavaPlugin) {
-    private var targetType: TargetType = Any
+    private var targetType: TargetType = ANY
     private var permissionCheck: PermissionCheck? = null
     private var executor: (CommandContext.() -> Boolean)? = null
     internal val argumentHints = mutableListOf<ArgumentHintData>()
@@ -84,15 +84,15 @@ class MoremmandBuilder(private val name: String, private val plugin: JavaPlugin)
 
     private fun validateSender(sender: CommandSender, showMessage: Boolean = true): Boolean {
         when (targetType) {
-            is Player -> if (sender !is org.bukkit.entity.Player) {
+            is PLAYER -> if (sender !is org.bukkit.entity.Player) {
                 if (showMessage) sender.sendMessage("§c이 명령어는 플레이어만 사용할 수 있습니다.")
                 return false
             }
-            is Console -> if (sender !is ConsoleCommandSender) {
+            is CONSOLE -> if (sender !is ConsoleCommandSender) {
                 if (showMessage) sender.sendMessage("§c이 명령어는 콘솔에서만 사용할 수 있습니다.")
                 return false
             }
-            is Any -> {  }
+            is ANY -> {  }
         }
 
         permissionCheck?.let { check ->
