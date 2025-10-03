@@ -122,8 +122,8 @@ moremmand("tp") target(PLAYER) permission(anyof(listof())) run {
       implementation("io.github.moregrayner.flowx:moremmand:version")
       //1.2 버전부터 시작합니다.
     }
+  ```
 
 * ### NOTE
- * 모든 코드는 SubCommand를 고려해 작성되지 않았습니다.
- * 문의사항이 있을 시 디스코드 MoreGrayner로 연락 바랍니다.
-  ```
+  * 모든 코드는 SubCommand를 고려해 작성되지 않았습니다.
+  * 문의사항이 있을 시 디스코드 MoreGrayner로 연락 바랍니다.
