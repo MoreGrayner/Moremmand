@@ -1,4 +1,4 @@
-package io.github.moremmand
+package io.github.moregrayner.flowx
 
 import org.bukkit.Location
 import org.bukkit.Material
