@@ -98,7 +98,8 @@ commands:
 //getLocation 함수의 경우 (X..Y) 형태의 IntRange 인자를 받습니다.
 //Hint 함수는 명령어 자동 완성을 제공합니다.
 //기타 옵션 없이 run{} 블록만 붙인 진행도 가능합니다.
-moremmand("tp") target Player permission anyof(listof()) run {
+//클래스명 중복으로 인해 부득이하게 이름을 변경하였습니다.
+moremmand("tp") target(PLAYER) permission(anyof(listof())) run {
   val player = args.getPlayer(0) hint("이름입력") to server.getOnlinePlayers
   val location = args.getLocation(1..3) hint ("위치입력") to player.location
   player.teleport(location)  
