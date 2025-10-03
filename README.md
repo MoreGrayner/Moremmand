@@ -115,6 +115,9 @@ moremmand("tp") target(PLAYER) permission(anyof(listof())) run {
 * ### Dependencies
   * build.gradle.kts
   ```kotlin
+    repositories{
+      maven("https://repo1.maven.org/maven2/")
+    }
     dependencies {
       implementation("io.github.moregrayner.flowx:moremmand:version")
       //1.2 버전부터 시작합니다.
