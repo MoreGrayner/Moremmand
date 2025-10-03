@@ -116,6 +116,6 @@ moremmand("tp") target Player permission anyof(listof()) run {
   ```kotlin
     dependencies {
       implementation("io.github.moregrayner.flowx:moremmand:version")
-      //1.1 버전부터 시작합니다.
+      //1.2 버전부터 시작합니다.
     }
   ```
